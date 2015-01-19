@@ -13,6 +13,9 @@
 		453D0D3E1A6CDCC60033E0AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453D0D3D1A6CDCC60033E0AC /* Images.xcassets */; };
 		453D0D411A6CDCC60033E0AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 453D0D3F1A6CDCC60033E0AC /* LaunchScreen.xib */; };
 		453D0D4D1A6CDCC60033E0AC /* MosaicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D0D4C1A6CDCC60033E0AC /* MosaicTests.swift */; };
+		453D0D591A6CE88C0033E0AC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D0D581A6CE88C0033E0AC /* Extensions.swift */; };
+		453D0D5B1A6D01560033E0AC /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D0D5A1A6D01560033E0AC /* PickerViewController.swift */; };
+		453D0D5D1A6D08A80033E0AC /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D0D5C1A6D08A80033E0AC /* GridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,10 @@
 		453D0D461A6CDCC60033E0AC /* MosaicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MosaicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		453D0D4B1A6CDCC60033E0AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		453D0D4C1A6CDCC60033E0AC /* MosaicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosaicTests.swift; sourceTree = "<group>"; };
+		453D0D571A6CDD470033E0AC /* Mosaic.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Mosaic.playground; sourceTree = "<group>"; };
+		453D0D581A6CE88C0033E0AC /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		453D0D5A1A6D01560033E0AC /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		453D0D5C1A6D08A80033E0AC /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +84,12 @@
 		453D0D331A6CDCC60033E0AC /* Mosaic */ = {
 			isa = PBXGroup;
 			children = (
+				453D0D571A6CDD470033E0AC /* Mosaic.playground */,
 				453D0D361A6CDCC60033E0AC /* AppDelegate.swift */,
 				453D0D381A6CDCC60033E0AC /* ViewController.swift */,
+				453D0D5A1A6D01560033E0AC /* PickerViewController.swift */,
+				453D0D5C1A6D08A80033E0AC /* GridView.swift */,
 				453D0D3A1A6CDCC60033E0AC /* Main.storyboard */,
-				453D0D3D1A6CDCC60033E0AC /* Images.xcassets */,
-				453D0D3F1A6CDCC60033E0AC /* LaunchScreen.xib */,
 				453D0D341A6CDCC60033E0AC /* Supporting Files */,
 			);
 			path = Mosaic;
@@ -90,7 +98,10 @@
 		453D0D341A6CDCC60033E0AC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				453D0D581A6CE88C0033E0AC /* Extensions.swift */,
 				453D0D351A6CDCC60033E0AC /* Info.plist */,
+				453D0D3F1A6CDCC60033E0AC /* LaunchScreen.xib */,
+				453D0D3D1A6CDCC60033E0AC /* Images.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -213,6 +224,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				453D0D391A6CDCC60033E0AC /* ViewController.swift in Sources */,
+				453D0D591A6CE88C0033E0AC /* Extensions.swift in Sources */,
+				453D0D5B1A6D01560033E0AC /* PickerViewController.swift in Sources */,
+				453D0D5D1A6D08A80033E0AC /* GridView.swift in Sources */,
 				453D0D371A6CDCC60033E0AC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
