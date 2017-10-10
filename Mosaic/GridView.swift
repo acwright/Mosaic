@@ -32,8 +32,6 @@ class GridView: UIView {
                 self.divisions = 25.0
             case GridViewSize.Large:
                 self.divisions = 50.0
-            default:
-                break
             }
             
             self.setNeedsDisplay()
@@ -52,20 +50,20 @@ class GridView: UIView {
         
         let multiplier = self.bounds.size.width / self.divisions
         
-        let ctx = UIGraphicsGetCurrentContext()
-        CGContextSetRGBStrokeColor(ctx, 0.5, 0.5, 0.5, 1.0)
-        CGContextSetLineWidth(ctx, 1.0)
+        let ctx = UIGraphicsGetCurrentContext()!
+        ctx.setStrokeColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0)
+        ctx.setLineWidth(1.0)
         
-        for var i: CGFloat = 0; i <= self.divisions; i++ {
-            CGContextMoveToPoint(ctx, i * multiplier, 0)
-            CGContextAddLineToPoint(ctx, i * multiplier, height)
-            CGContextStrokePath(ctx)
+        for i in 0..<Int(self.divisions) {
+            ctx.move(to: CGPoint(x: CGFloat(i) * multiplier, y: 0))
+            ctx.addLine(to: CGPoint(x: CGFloat(i) * multiplier, y: height))
+            ctx.strokePath()
         }
         
-        for var i: CGFloat = 0; i <= self.divisions; i++ {
-            CGContextMoveToPoint(ctx, 0, i * multiplier)
-            CGContextAddLineToPoint(ctx, width, i * multiplier)
-            CGContextStrokePath(ctx)
+        for i in 0..<Int(self.divisions) {
+            ctx.move(to: CGPoint(x: 0, y: CGFloat(i) * multiplier))
+            ctx.addLine(to: CGPoint(x: width, y: CGFloat(i) * multiplier))
+            ctx.strokePath()
         }
     }
     
@@ -79,21 +77,23 @@ class GridView: UIView {
             let imageMultiplier = image.size.width / self.divisions
             let multiplier = self.bounds.size.width / self.divisions
             
-            let ctx = UIGraphicsGetCurrentContext()
+            let ctx = UIGraphicsGetCurrentContext()!
             
-            for var i: CGFloat = 0; i <= self.divisions; i++ {
-                for var j: CGFloat = 0; j <= self.divisions; j++ {
-                    let rect = CGRectMake(i * multiplier, j * multiplier, width, height)
-                    let imageRect = CGRectMake(i * imageMultiplier, j * imageMultiplier, imageWidth, imageHeight)
+            for i in 0..<Int(self.divisions) {
+                for j in 0..<Int(self.divisions) {
+                    let rect = CGRect(x: CGFloat(i) * multiplier, y: CGFloat(j) * multiplier, width: width, height: height)
+                    let imageRect = CGRect(x: CGFloat(i) * imageMultiplier, y: CGFloat(j) * imageMultiplier, width: imageWidth, height: imageHeight)
                     
-                    CGContextSetFillColorWithColor(ctx, image.portionOfImage(imageRect)?.averageColor().CGColor)
-                    CGContextFillRect(ctx, rect)
+                    if let portion = image.portionOfImage(rect: imageRect) {
+                        ctx.setFillColor(portion.averageColor().cgColor)
+                        ctx.fill(rect)
+                    }
                 }
             }
         }
     }
 
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         if self.colored {
             self.drawColors()
         } else {
